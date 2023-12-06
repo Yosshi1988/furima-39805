@@ -27,7 +27,7 @@
 | category_id        | integer    | null: false                    |
 | condition_id       | integer    | null: false                    |
 | delivery_charge_id | integer    | null: false                    |
-| shipping_origin_id | integer    | null: false                    |
+| prefecture_id      | integer    | null: false                    |
 | shipping_time_id   | integer    | null: false                    |
 | price              | integer    | null: false                    |
 | user               | references | null: false, foreign_key: true |
@@ -39,7 +39,7 @@
 - belongs_to :category
 - belongs_to :condition
 - belongs_to :delivery_charge
-- belongs_to :shipping_origin
+- belongs_to :prefecture
 - belongs_to :shipping_time
 
 ## purchases テーブル
