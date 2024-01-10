@@ -1,6 +1,6 @@
 class PurchaseAddress
   include ActiveModel::Model
-  attr_accessor :item_id, :user_id, :postal_code, :prefecture_id, :city, :street_address, :building, :tel
+  attr_accessor :item_id, :user_id, :postal_code, :prefecture_id, :city, :street_address, :building, :tel, :token
 
   with_options presence: true do
     validates :item_id
@@ -10,6 +10,7 @@ class PurchaseAddress
     validates :city
     validates :street_address
     validates :tel, format: { with: /\A[0-9]{10,11}\z/, message: 'is invalid. Telephone number should be 10 to 11 digits' }
+    validates :token
   end
 
   def save
