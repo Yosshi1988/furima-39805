@@ -51,17 +51,17 @@ RSpec.describe PurchaseAddress, type: :model do
       it 'telが半角数字でないと保存できないこと' do
         @purchase_address.tel = '０９０１２３４５６７８'
         @purchase_address.valid?
-        expect(@purchase_address.errors.full_messages).to include('Tel is invalid. Telephone number should be 10 to 11 digits')
+        expect(@purchase_address.errors.full_messages).to include('Tel is half-width number. Telephone number should be 10 to 11 digits') # rubocop:disable Layout/LineLength
       end
       it 'telが9文字以下だと保存できないこと' do
         @purchase_address.tel = '090123456'
         @purchase_address.valid?
-        expect(@purchase_address.errors.full_messages).to include('Tel is invalid. Telephone number should be 10 to 11 digits')
+        expect(@purchase_address.errors.full_messages).to include('Tel is half-width number. Telephone number should be 10 to 11 digits') # rubocop:disable Layout/LineLength
       end
       it 'telが12文字以上だと保存できないこと' do
         @purchase_address.tel = '090123456789'
         @purchase_address.valid?
-        expect(@purchase_address.errors.full_messages).to include('Tel is invalid. Telephone number should be 10 to 11 digits')
+        expect(@purchase_address.errors.full_messages).to include('Tel is half-width number. Telephone number should be 10 to 11 digits') # rubocop:disable Layout/LineLength
       end
       it 'tokenが空だと保存できないこと' do
         @purchase_address.token = ''
