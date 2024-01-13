@@ -28,9 +28,5 @@ const pay = () => {
     e.preventDefault();
   });
 };
-
-window.addEventListener("turbo:before-visit", () => {
-  pay.destroy();
-});
-window.addEventListener("turbo:load", pay)
+window.addEventListener("turbo:load", pay);
 window.addEventListener("turbo:render", pay);
